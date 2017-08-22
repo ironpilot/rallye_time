@@ -1,0 +1,12 @@
+<phpunit bootstrap="bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Staple Test Suite">
+            <directory>Staple/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../library/Staple/</directory>
+        </whitelist>
+    </filter>
+</phpunit>

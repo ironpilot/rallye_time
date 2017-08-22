@@ -1,0 +1,10 @@
+#Turns on URL Rewrite
+RewriteEngine on
+RewriteBase /
+
+#Checks for existing files -f and directories -d and disables rewrite
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.[a-zA-Z0-9\/-]*)$ index.php?/$1 [PT,QSA,L]
+

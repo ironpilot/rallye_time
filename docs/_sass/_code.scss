@@ -1,0 +1,21 @@
+// Code inline
+p ,
+li {
+  > code {
+    background: lighten(complement($masthead-background), 50%);
+    color: darken(complement($masthead-background), 10%);
+    font-size: 95%;
+    padding: 0.2em 0.5em;
+    @include border-radius(3px);
+  }
+}
+
+// Code blocks
+[class*="highlighter"] {
+  width: 100%;
+  .highlight {
+    padding: 1rem;
+    margin: 2rem 0;
+    @include border-radius(3px);
+  }
+}
