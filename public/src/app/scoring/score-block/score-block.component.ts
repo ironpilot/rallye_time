@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import * as moment from 'moment';
 import {Checkpoint} from "../checkpoint.model";
+import {ScoreCardService} from "../score-card.service";
 
 @Component({
     selector: 'app-score-block',
@@ -11,7 +12,7 @@ export class ScoreBlockComponent implements OnInit {
     @Output() removeCheckpoint = new EventEmitter<Checkpoint>();
     @Input() checkpoint:Checkpoint;
 
-    constructor() {
+    constructor(private scoreCardService: ScoreCardService) {
     }
 
     onUpdateTrueTime() {
@@ -43,16 +44,7 @@ export class ScoreBlockComponent implements OnInit {
     }
 
     onRemoveCheckpoint() {
-        console.log('emitted');
-        this.removeCheckpoint.emit(this.checkpoint);
-    }
-
-    getTrueTime() {
-        return this.checkpoint.timeTrue instanceof moment ? this.checkpoint.timeTrue.format('H:mm:ss') : null
-    }
-
-    getErrorTime() {
-        return this.checkpoint.timeError instanceof moment ? this.checkpoint.timeError.format('H:mm:ss') : null
+        this.scoreCardService.removeCheckpoint(this.checkpoint);
     }
 
     ngOnInit() {

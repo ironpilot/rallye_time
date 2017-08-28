@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 export class Checkpoint {
     constructor(
         public name: string,
@@ -8,4 +10,12 @@ export class Checkpoint {
         public timeError:any = '',
         public points: number = 0
     ) {}
+
+    getTrueTime() {
+        return this.timeTrue instanceof moment ? this.timeTrue.format('H:mm:ss') : null
+    }
+
+    getErrorTime() {
+        return this.timeError instanceof moment ? this.timeError.format('H:mm:ss') : null
+    }
 }

@@ -7,13 +7,15 @@ import {FormsModule} from "@angular/forms";
 import { ScoreCardComponent } from './scoring/score-card/score-card.component';
 import { ScoreBlockComponent } from './scoring/score-block/score-block.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ScoreTotalComponent } from './scoring/score-total/score-total.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ScoreCardComponent,
         ScoreBlockComponent,
-        NavBarComponent
+        NavBarComponent,
+        ScoreTotalComponent
     ],
     imports: [
         BrowserModule,

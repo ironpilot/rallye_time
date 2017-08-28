@@ -1,0 +1,23 @@
+<div class="col-sm-12 col-md-4">
+    <h3>Score</h3>
+    <table class="table table-striped table-bordered table-responsive table-sm">
+        <thead class="thead-inverse">
+        <tr>
+            <th>Checkpoint</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let checkpoint of checkpoints; let i = index">
+            <td>{{ checkpoint.name }}</td>
+            <td>{{ checkpoint.points }}</td>
+        </tr>
+        </tbody>
+        <tfoot class="table-success">
+        <tr>
+            <td>Total:</td>
+            <td>{{ getTotal() }}</td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
