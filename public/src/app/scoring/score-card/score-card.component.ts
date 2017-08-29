@@ -11,9 +11,7 @@ import {ScoreCardService} from "../score-card.service";
 export class ScoreCardComponent implements OnInit {
     checkpoints: Checkpoint[];
 
-    constructor(private scoreCardService: ScoreCardService) {
-        this.checkpoints = scoreCardService.scoreCard.checkpoints;
-    }
+    constructor(private scoreCardService: ScoreCardService) {}
 
     onAddCheckpoint(checkPointField) {
         this.scoreCardService.addCheckpoint(checkPointField.value);
@@ -21,6 +19,7 @@ export class ScoreCardComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.checkpoints = this.scoreCardService.scoreCard.checkpoints;
     }
 
 }

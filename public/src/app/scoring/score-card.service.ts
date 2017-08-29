@@ -9,6 +9,10 @@ export class ScoreCardService {
         ]
     };
 
+    getCheckpoints() {
+        return this.scoreCard.checkpoints.slice();
+    }
+
     addCheckpoint(checkpointName) {
         if(checkpointName.length >= 1) {
             this.scoreCard.checkpoints.push(
