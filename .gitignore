@@ -14,7 +14,7 @@ composer.lock
 /out-tsc
 
 # dependencies
-/public/node_modules
+/node_modules
 
 # IDEs and editors
 .project
