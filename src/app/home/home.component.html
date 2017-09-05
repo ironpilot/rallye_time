@@ -1,0 +1,31 @@
+<h1>Welcome to Rallye Time</h1>
+<p>To get started we need a little bit of information from you. To get started, enter your car number, driver and
+    navigator names. Then select your race to begin your score sheet!</p>
+<form>
+    <div class="row">
+        <div class="col-md-4 col-sm-12">
+            <label for="carNumber" class="mr-sm-2">Car Number</label>
+            <input type="number" class="form-control" id="carNumber" name="carNumber" placeholder="21" [(ngModel)]="car">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <label for="carNumber" class="mr-sm-2">Driver</label>
+            <input type="text" class="form-control" id="driver" name="driver" placeholder="Lightning McQueen" [(ngModel)]="driver">
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <label for="carNumber" class="mr-sm-2">Navigator</label>
+            <input type="text" class="form-control" id="navigator" name="navigator" placeholder="Tow Mater" [(ngModel)]="navigator">
+        </div>
+        <div class="col-12">
+            <hr>
+        </div>
+        <div class="col-12 form-group">
+            <label for="raceSelect">Select Your Race:</label>
+            <select class="form-control" id="raceSelect" name="raceSelect" [(ngModel)]="race">
+                <option *ngFor="let race of raceService.getAvailableRaces()" [value]="race.id">{{ race.name }}</option>
+            </select>
+        </div>
+        <div class="col-12">
+            <button type="button" class="btn btn-primary" (click)="onStartRace()">Start Your Engine!</button>
+        </div>
+    </div>
+</form>

@@ -1,13 +1,13 @@
 import {Checkpoint} from "./checkpoint.model";
 import {ScoreCard} from "./score-card.model";
+import {Injectable} from "@angular/core";
+import {RaceService} from "../race.service";
 
+@Injectable()
 export class ScoreCardService {
-    public scoreCard: ScoreCard = {
-        checkpoints: [
-            new Checkpoint('Checkpoint 1'),
-            new Checkpoint('Checkpoint 2'),
-        ]
-    };
+    public scoreCard: ScoreCard;
+
+    constructor(private raceService: RaceService){}
 
     getCheckpoints() {
         return this.scoreCard.checkpoints.slice();
@@ -26,5 +26,20 @@ export class ScoreCardService {
             return element === checkpoint;
         });
         this.scoreCard.checkpoints.splice(index, 1);
+    }
+
+    setupRace(car:String, driver: String, navigator: String, raceId: Number) {
+        console.log(this.raceService.getCheckpointsForRace(raceId));
+        this.scoreCard = new ScoreCard(
+            this.raceService.getCheckpointsForRace(raceId),
+            car,
+            driver,
+            navigator,
+            raceId
+        );
+    }
+
+    hasRace() {
+        return (this.scoreCard.raceId > 0);
     }
 }
