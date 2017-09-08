@@ -5,7 +5,7 @@ import {RaceService} from "../race.service";
 
 @Injectable()
 export class ScoreCardService {
-    public scoreCard: ScoreCard;
+    public scoreCard: ScoreCard = new ScoreCard([]);
 
     constructor(private raceService: RaceService){}
 

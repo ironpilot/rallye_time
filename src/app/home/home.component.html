@@ -18,12 +18,16 @@
         <div class="col-12">
             <hr>
         </div>
-        <div class="col-12 form-group">
+        <div class="col-8 form-group">
             <label for="raceSelect">Select Your Race:</label>
             <select class="form-control" id="raceSelect" name="raceSelect" [(ngModel)]="race">
                 <option *ngFor="let race of raceService.getAvailableRaces()" [value]="race.id">{{ race.name }}</option>
             </select>
         </div>
+		<div class="col-4 form-group">
+			<label for="accessCode" class="mr-sm-2">Access Code</label>
+			<input type="text" class="form-control" id="accessCode" name="accessCode" placeholder="Race Access Code" [(ngModel)]="accessCode">
+		</div>
         <div class="col-12">
             <button type="button" class="btn btn-primary" (click)="onStartRace()">Start Your Engine!</button>
         </div>

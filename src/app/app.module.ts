@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {HttpModule} from "@angular/http";
@@ -12,12 +11,13 @@ import {ScoreTotalComponent} from './scoring/score-total/score-total.component';
 import { HomeComponent } from './home/home.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import {RaceService} from "./race.service";
-
-const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
-    { path: 'leaderboard', component: LeaderboardComponent},
-    { path: 'score-card', component: ScoreCardComponent},
-];
+import {AppRoutingModule} from "./app-routing.module";
+import {AuthService} from "./auth.service";
+import {AuthGuard} from "./auth-guard.service";
+import { LoginComponent } from './login/login.component';
+import { RaceComponent } from './race/race.component';
+import { AccountComponent } from './account/account.component';
+import { ForgotComponent } from './login/forgot/forgot.component';
 
 @NgModule({
     declarations: [
@@ -27,15 +27,19 @@ const appRoutes: Routes = [
         NavBarComponent,
         ScoreTotalComponent,
         HomeComponent,
-        LeaderboardComponent
+        LeaderboardComponent,
+        LoginComponent,
+        RaceComponent,
+        AccountComponent,
+        ForgotComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(appRoutes)
+		AppRoutingModule
     ],
-    providers: [RaceService],
+    providers: [RaceService, AuthService, AuthGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {

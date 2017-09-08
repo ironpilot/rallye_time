@@ -1,3 +1,44 @@
-<p>
-  leaderboard works!
-</p>
+<h1>Leaderboard</h1>
+
+<form class="form-inline">
+	<div class="form-group">
+		<label for="races">Select Race</label> &nbsp;
+		<select id="races" class="form-control" #raceSelect>
+			<option *ngFor="let race of raceService.getAvailableRaces()" [value]="race.id">{{race.name}}</option>
+		</select>
+		&nbsp;
+	</div>
+	<button type="button" class="btn btn-primary" (click)="onSelectRace(raceSelect)">Show Leaders</button>
+</form>
+<br class="clearfix">
+
+<table class="table table-responsive table-striped">
+	<thead>
+	<tr>
+		<th>Car</th>
+		<th>Driver</th>
+		<th>Navigator</th>
+		<th>Checkpoints</th>
+		<th>Score</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr *ngFor="let racer of racers">
+		<td>
+			{{ racer.car }}
+		</td>
+		<td>
+			{{ racer.driver }}
+		</td>
+		<td>
+			{{ racer.navigator }}
+		</td>
+		<td>
+			{{ racer.checkpoints.length }}
+		</td>
+		<td>
+			{{ racer.getScore() }}
+		</td>
+	</tr>
+	</tbody>
+</table>

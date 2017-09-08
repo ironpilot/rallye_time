@@ -8,4 +8,14 @@ export class ScoreCard {
         public navigator: String = '',
         public raceId: Number = 0
     ) {}
+
+    getScore() {
+    	let total = 0;
+
+		this.checkpoints.forEach((element) => {
+			total += element.points;
+		});
+
+		return total;
+	}
 }

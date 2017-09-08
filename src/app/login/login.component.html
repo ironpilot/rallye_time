@@ -1,0 +1,19 @@
+<h1>Login</h1>
+<p>Enter your email address and password to login to your account.</p>
+<form>
+	<div class="row">
+		<div class="col-md-4 col-sm-12 form-group">
+			<label for="email" class="mr-sm-2">Email Address</label>
+			<input type="email" class="form-control" id="email" name="email" placeholder="speed@racer.com" [(ngModel)]="email">
+		</div>
+		<div class="col-md-4 col-sm-6 form-group">
+			<label for="password" class="mr-sm-2">Password</label>
+			<input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
+			<small id="emailHelp" class="form-text text-muted"><a routerLink="/login/forgot">Forgot Password?</a></small>
+		</div>
+		<div class="col-12 form-group">
+			<button type="submit" class="btn btn-primary">Login</button>
+			<button type="button" class="btn btn-secondary">Cancel</button>
+		</div>
+	</div>
+</form>

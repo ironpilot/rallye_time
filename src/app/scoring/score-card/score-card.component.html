@@ -15,19 +15,20 @@
             <input type="text" class="form-control" id="navigator" name="navigator" placeholder="Tow Mater" [(ngModel)]="scoreCardService.scoreCard.navigator">
         </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-4 col-sm-6">
-            <div class="input-group mb-2 mb-sm-0">
-                <label for="newCheckpointName" class="sr-only">New Checkpoint Name</label>
-                <input type="text" id="newCheckpointName" name="newCheckpointName" class="form-control" placeholder="Checkpoint Name" #checkpointName>
-                <button class="input-group-addon btn btn-primary" (click)="onAddCheckpoint(checkpointName)">Add Checkpoint</button>
-            </div>
-        </div>
-    </div>
+
     <br>
     <app-score-block *ngFor="let card of checkpoints" [checkpoint]="card"></app-score-block>
 
+	<div class="row">
+		<div class="col-md-4 col-sm-6">
+			<div class="input-group mb-2 mb-sm-0">
+				<label for="newCheckpointName" class="sr-only">New Checkpoint Name</label>
+				<input type="text" id="newCheckpointName" name="newCheckpointName" class="form-control" placeholder="Checkpoint Name" #checkpointName>
+				<button class="input-group-addon btn btn-primary" (click)="onAddCheckpoint(checkpointName)">Add Checkpoint</button>
+			</div>
+		</div>
+	</div>
+	<hr>
     <app-score-total [checkpoints]="checkpoints"></app-score-total>
     <button type="submit" class="btn btn-success">Submit</button>
 </form>

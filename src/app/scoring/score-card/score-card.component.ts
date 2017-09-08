@@ -25,6 +25,7 @@ export class ScoreCardComponent implements OnInit {
     }
 
     ngOnInit() {
+    	console.log('Initialized');
         this.checkpoints = this.scoreCardService.scoreCard.checkpoints;
         if(!this.scoreCardService.hasRace()) {
             this.router.navigate(['/']);

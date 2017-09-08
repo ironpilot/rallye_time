@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
     driver: String = '';
     navigator: String = '';
     race: Number = 1;
+    accessCode: String = '';
 
     constructor(
         private scoreCardService: ScoreCardService,
@@ -24,13 +25,18 @@ export class HomeComponent implements OnInit {
     }
 
     onStartRace() {
-        this.scoreCardService.setupRace(
-            this.car,
-            this.driver,
-            this.navigator,
-            this.race
-        );
+    	if(this.raceService.verifyAccessCode(this.race, this.accessCode)) {
+			this.scoreCardService.setupRace(
+				this.car,
+				this.driver,
+				this.navigator,
+				this.race
+			);
 
-        this.router.navigate(['score-card']);
+			this.router.navigate(['score-card']);
+		} else {
+    		console.log('Failed Verification');
+    		//@todo show an error message
+		}
     }
 }
