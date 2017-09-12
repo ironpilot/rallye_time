@@ -8,7 +8,7 @@ export class Checkpoint {
         public timeTrue?:any,
         public timeActual?:string,
         public timeError?:any,
-        public points?: number
+        public points: number = 0
     ) {}
 
     getTrueTime() {

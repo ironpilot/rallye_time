@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Checkpoint} from '../checkpoint.model';
+import {Checkpoint} from '../../models/checkpoint.model';
 import {ScoreCardService} from "../score-card.service";
 import {RaceService} from "../../race.service";
 import {Router} from "@angular/router";

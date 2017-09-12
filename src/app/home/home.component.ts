@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ScoreCardService} from "../scoring/score-card.service";
 import {Router} from "@angular/router";
 import {RaceService} from "../race.service";
+import {NgForm} from "@angular/forms";
 
 @Component({
     selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
     navigator: String = '';
     race: Number = 1;
     accessCode: String = '';
+    @ViewChild('form') startForm: NgForm;
 
     constructor(
         private scoreCardService: ScoreCardService,
@@ -25,12 +27,12 @@ export class HomeComponent implements OnInit {
     }
 
     onStartRace() {
-    	if(this.raceService.verifyAccessCode(this.race, this.accessCode)) {
+    	if(this.raceService.verifyAccessCode(this.startForm.value.raceSelect, this.startForm.value.accessCode)) {
 			this.scoreCardService.setupRace(
-				this.car,
-				this.driver,
-				this.navigator,
-				this.race
+				this.startForm.value.carNumber,
+				this.startForm.value.driver,
+				this.startForm.value.navigator,
+				this.startForm.value.raceSelect
 			);
 
 			this.router.navigate(['score-card']);
@@ -38,5 +40,5 @@ export class HomeComponent implements OnInit {
     		console.log('Failed Verification');
     		//@todo show an error message
 		}
-    }
+	}
 }

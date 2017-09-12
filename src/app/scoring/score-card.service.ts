@@ -1,5 +1,5 @@
-import {Checkpoint} from "./checkpoint.model";
-import {ScoreCard} from "./score-card.model";
+import {Checkpoint} from "../models/checkpoint.model";
+import {ScoreCard} from "../models/score-card.model";
 import {Injectable} from "@angular/core";
 import {RaceService} from "../race.service";
 
@@ -29,6 +29,7 @@ export class ScoreCardService {
     }
 
     setupRace(car:String, driver: String, navigator: String, raceId: Number) {
+    	console.log(raceId);
         console.log(this.raceService.getCheckpointsForRace(raceId));
         this.scoreCard = new ScoreCard(
             this.raceService.getCheckpointsForRace(raceId),

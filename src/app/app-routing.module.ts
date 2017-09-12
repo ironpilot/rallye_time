@@ -13,7 +13,7 @@ const appRoutes: Routes = [
 	{ path: 'account', canActivate: [AuthGuard], component: AccountComponent},
 	{ path: 'login', component: LoginComponent},
 	{ path: 'leaderboard', component: LeaderboardComponent},
-	{ path: 'score-card', canActivate: [AuthGuard], component: ScoreCardComponent},
+	{ path: 'score-card', component: ScoreCardComponent},
 	{ path: '**', redirectTo: '/'}
 ];
 

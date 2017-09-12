@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import * as moment from 'moment';
-import {Checkpoint} from "../checkpoint.model";
+import {Checkpoint} from "../../models/checkpoint.model";
 import {ScoreCardService} from "../score-card.service";
 
 @Component({

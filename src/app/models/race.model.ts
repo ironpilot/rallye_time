@@ -1,5 +1,5 @@
-import {Checkpoint} from "./scoring/checkpoint.model";
-import {ScoreCard} from "./scoring/score-card.model";
+import {Checkpoint} from "./checkpoint.model";
+import {ScoreCard} from "./score-card.model";
 
 export class RaceModel {
 	public scoreCards: ScoreCard[];

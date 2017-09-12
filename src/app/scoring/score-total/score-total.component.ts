@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Checkpoint} from "../checkpoint.model";
+import {Checkpoint} from "../../models/checkpoint.model";
 
 
 @Component({
@@ -20,7 +20,10 @@ export class ScoreTotalComponent implements OnInit {
         this.checkpoints.forEach((element) => {
             total += element.points;
         });
-        return total;
+        if(total)
+        	return total;
+        else
+        	return 'No Score';
     }
 
 }

@@ -1,5 +1,5 @@
-import {Checkpoint} from "./scoring/checkpoint.model";
-import {RaceModel} from "./race.model";
+import {Checkpoint} from "./models/checkpoint.model";
+import {RaceModel} from "./models/race.model";
 
 export class RaceService {
     private availableRaces: RaceModel[] = [
