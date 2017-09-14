@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
-import {RaceService} from "../race.service";
-import {RaceModel} from "../models/race.model";
+import {RaceService} from '../services/race.service';
+import {RaceModel} from '../models/race.model';
 
 @Component({
 	selector: 'app-leaderboard',
@@ -10,7 +10,7 @@ import {RaceModel} from "../models/race.model";
 export class LeaderboardComponent implements OnInit {
 	racers: RaceModel;
 
-	constructor(public raceService:RaceService) {
+	constructor(public raceService: RaceService) {
 	}
 
 	ngOnInit() {
